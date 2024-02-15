@@ -1,0 +1,66 @@
+Date 230721
+
+Aim:
+Create a new workbench, with EnDecon installed via simple .sh file, and run R in jupyter (R kernal), and install EnDecon_GPU_New envs
+Result: As if 230721, this set up (R kernal and EnDecon_GPU_New env) works for running both R and python method. No need to use Rstudio
+Methods that works: 
+
+Method not work:
+MuSiC
+
+Files needed:
+install_endecon.sh (from Sergio)
+
+Steps:
+1. # Create GPUlab v1.13 (Sergio used v1.9)
+
+2. # Install R dependancies via sh file, this will take a while
+sh install_endecon.sh
+
+3. #Run this in terminal to set up nvcc in case it is missing [only needed if you want to use GPU]
+# You must run this before install EnDecon_GPU env, otherwise if will fail
+sudo apt update
+sudo apt install nvidia-cuda-toolkit
+
+4. git clone https://github.com/Zhangxf-ccnu/EnDecon.git
+
+5. sudo apt update
+
+6. sudo apt install nvidia-cuda-toolkit
+
+7. cd EnDecon
+
+8. conda env create -f requirments_EnDecon_GPU.yml -p /home/oneai/envs/EnDecon_GPU_New
+
+9. conda activate /home/oneai/envs/EnDecon_GPU_New
+
+10. ipython kernel install --user --name=EnDecon_GPU
+
+
+
+
+(EnDecon_GPU_New) oneai@oneai-dda-spatialtr-deconvbench-endeconall-6b5f89b5cb-gp9hj:~/EnDecon$ history
+    1  sh install_edencon.sh
+    2  ls
+    3  sh install_endecon.sh 
+    4  git clone https://github.com/Zhangxf-ccnu/EnDecon.git
+    5  cd EnDecon
+    6  conda env create -f requirments_EnDecon_GPU.yml -p /home/oneai/envs/EnDecon_GPU
+    7  sudo apt update
+    8  sudo apt install nvidia-cuda-toolkit
+    9  cd EnDecon
+   10  ls
+   11  conda env create -f requirments_EnDecon_GPU.yml -p /home/oneai/envs/EnDecon_GPU
+   12  conda env create -f requirments_EnDecon_GPU.yml -p /home/oneai/envs/EnDecon_GPU
+   13  conda env create -f requirements_EnDecon_GPU.yml -p /home/oneai/envs/EnDecon_GPU
+   14  cd Endecon
+   15  cd EnDecon
+   16  ls
+   17  conda env create -f requirements_EnDecon_GPU.yml -p /home/oneai/envs/EnDecon_GPU
+   18  ls
+   19  conda env create -f requirments_EnDecon_GPU.yml -p /home/oneai/envs/EnDecon_GPU
+   20  conda env remove -p /home/oneai/envs/EnDecon_GPU --all
+   21  conda env create -f requirments_EnDecon_GPU.yml -p /home/oneai/envs/EnDecon_GPU_New
+   22  conda activate /home/oneai/envs/EnDecon_GPU_New
+   23  ipython kernel install --user --name=EnDecon_GPU_New
+   24  history
